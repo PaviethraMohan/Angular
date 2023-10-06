@@ -1,0 +1,33 @@
+<div class="container-fluid" style="background-color: aquamarine;">
+<div class="row justify-content-center">
+    <h5>Servers works!</h5>
+</div>
+</div>
+
+<hr>
+<label>Server Name</label>
+<!--<input type="text" class="form-control"(input)="onUpdateServerName($event)">-->
+<input type="text" class="form-control"
+[(ngModel)]="serverName">
+
+<button class="btn btn-primary"
+[disabled]="!allowNewServer"
+(click)="onCreateServer()"> Add</button>
+
+
+<p>{{allowNewServer}}</p> <!--interpolation-->
+<p [innerText]="allowNewServer"></p> <!--property-->
+<div class="container-fluid">
+<div class ="row justify-content-start"style="background-color:brown;color:white;">
+    <p>{{serverCreationStatus}}</p>
+</div>
+<p *ngIf="serverCreated;else noServer">Server was Created.Server Name: {{serverName}}</p>
+<ng-template #noServer>
+    <p>No server was created</p>
+</ng-template>
+
+</div>
+
+
+<app-server></app-server>
+<app-server></app-server>
